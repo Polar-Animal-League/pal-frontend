@@ -6,8 +6,7 @@
     "module": "CommonJs",
     "resolveJsonModule": true,
     "noEmitOnError": true,
-    "strict": true,
-    "esModuleInterop": true
+    "strict": true
   },
   "include": ["./src/**/*"]
 }
