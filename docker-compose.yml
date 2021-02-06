@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+
+  app:
+    container_name: pal-frontend
+    restart: unless-stopped
+    tty: true
+    env_file:
+      - .env
