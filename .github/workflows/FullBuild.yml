@@ -68,7 +68,7 @@ jobs:
         with:
           context: .
           build-args: |
-            NPM_TOKEN=${{ secret.NPM_TOKEN_CI }}
+            NPM_TOKEN=${{ secrets.NPM_TOKEN_CI }}
           push: false
           tags: polar-animal-league/pal-frontend:pr
 
