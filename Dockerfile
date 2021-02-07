@@ -7,18 +7,13 @@ COPY package*.json ./
 COPY .npmrc .npmrc
 
 RUN echo $'\n//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> .npmrc \
-    && npm install --production --no-fund --no-optional --no-audit --ignore-scripts
-
-RUN VERSION_TS=`node -p -e "require('./package.json').devDependencies.typescript"` \
-    && VERSION_NTS=`node -p -e "require('./package.json').devDependencies[\"@types/node\"]"` \
-    && VERSION_ETS=`node -p -e "require('./package.json').devDependencies[\"@types/express\"]"` \
-    && npm install --no-package-lock --no-save typescript@"$VERSION_TS" @types/node@"$VERSION_NTS" @types/express@"$VERSION_ETS" \
+    && npm install --no-fund --no-optional --no-audit --ignore-scripts \
     && rm -f .npmrc
 
 COPY . .
 RUN /usr/pal-frontend/node_modules/typescript/bin/tsc -p /usr/pal-frontend/tsconfig.json
 
-FROM alpine:latest AS buildPROD
+FROM alpine:latest AS buildMODULES
 ENV NODE_VERSION=~14
 ARG NPM_TOKEN
 WORKDIR /usr/pal-frontend
@@ -27,8 +22,8 @@ COPY package*.json ./
 COPY .npmrc .npmrc
 
 RUN echo $'\n//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> .npmrc \
-    && npm install --production --no-fund --no-optional --no-audit --ignore-scripts
-RUN rm -f .npmrc
+    && npm install --production --no-fund --no-optional --no-audit --ignore-scripts \
+    && rm -f .npmrc
 
 FROM alpine:latest
 ENV NODE_VERSION=~14
@@ -40,7 +35,7 @@ RUN addgroup -g 1000 node \
 
 USER node
 
-COPY --from=buildPROD usr/pal-frontend/ ./
+COPY --from=buildMODULES usr/pal-frontend/ ./
 COPY --from=buildTSC usr/pal-frontend/dist ./dist
 
 ENTRYPOINT ["node", "."]
