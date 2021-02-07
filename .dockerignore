@@ -5,7 +5,8 @@ www
 .eslintignore
 .eslintrc
 .env.template
-.env.gitignore
+.env
+.gitignore
 README.md
 docker-compose.*.yml
 Dockerfile
