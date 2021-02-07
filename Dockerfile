@@ -8,7 +8,8 @@ RUN npm install --production --no-fund --no-optional --no-audit --ignore-scripts
 
 RUN VERSION_TS=`node -p -e "require('./package.json').devDependencies.typescript"` \
     && VERSION_NTS=`node -p -e "require('./package.json').devDependencies[\"@types/node\"]"` \
-    && npm install --no-package-lock --no-save typescript@"$VERSION_TS" @types/node@"$VERSION_NTS"
+    && VERSION_ETS=`node -p -e "require('./package.json').devDependencies[\"@types/express\"]"` \
+    && npm install --no-package-lock --no-save typescript@"$VERSION_TS" @types/node@"$VERSION_NTS" @types/express@"$VERSION_ETS"
 
 COPY . .
 RUN /usr/pal-frontend/node_modules/typescript/bin/tsc -p /usr/pal-frontend/tsconfig.json
