@@ -2,12 +2,13 @@
   "name": "@pal/frontend",
   "version": "0.0.1",
   "main": "dist/index.js",
+  "type": "commonjs",
   "scripts": {
     "build": "tsc && npm run cpwww",
     "cpwww": "rimraf ./dist/www && ncp ./www ./dist/www",
     "lint": "eslint . --ext .ts",
     "dev": "npm run build && cross-conf-env docker-compose up --build app",
-    "dev:watch": "nodemon --watch src -e ts,json --exec \"npm run dev\""
+    "dev:watch": "env-cmd nodemon --watch src -e ts,json --exec \"npm run dev\""
   },
   "author": "Micha_i",
   "repository": {
@@ -23,10 +24,11 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
-    "@types/node": "^14.14.13",
+    "@types/node": "^14.14.25",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "cross-conf-env": "^1.2.1",
+    "env-cmd": "^10.1.0",
     "eslint": "^7.15.0",
     "eslint-formatter-github": "^1.0.11",
     "ncp": "^2.0.0",
