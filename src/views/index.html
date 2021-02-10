@@ -1,0 +1,21 @@
+<html>
+
+<body>
+    <p>Your Email Address</p>
+    <input type="text" id="email" placeholder="your-email@example.com">
+
+    <p>Your Password (Make sure it is at least 8 letters long, and contains one number and one capital letter)</p>
+    <input type="password" id="password" placeholder="Your Password">
+
+    <p>Confirm Your Password (Enter it again)</p>
+    <input type="password" id="passwordValidate" placeholder="Your Password">
+
+    <p id="invalidInputError" style="color: red; display: none;"></p>
+
+    <p>Press Submit when you have entered all your details</p>
+    <input type="submit" id="submitButton" text="Submit" onclick="validateForm()">
+</body>
+
+<script src="registrationScript.js"></script>
+
+</html>
