@@ -3,6 +3,9 @@
         "vscode-icons-team.vscode-icons",
         "ms-azuretools.vscode-docker",
         "dbaeumer.vscode-eslint",
-        "ms-vscode-remote.remote-wsl"
+        "ms-vscode-remote.remote-wsl",
+        "esbenp.prettier-vscode",
+        "eg2.vscode-npm-script",
+        "eamodio.gitlens"
     ]
 }
