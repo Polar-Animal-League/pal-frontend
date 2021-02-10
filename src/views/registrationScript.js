@@ -15,26 +15,31 @@ async function postToServer(url = "", payload = {}) {
 }
 
 function checkPassword(passwordOne = "", passwordTwo = "") {
-    validPassword = true;
-    message = "";
+    let validPassword = true;
+    let message = "";
 
     if (passwordOne == passwordTwo) {
         if (passwordOne.length < 6) {
             message = "Password must contain at least six characters!";
             validPassword = false;
+            document.getElementById("card").style.height = "400px";
         } else if (!numberCheck.test(passwordOne)) {
             message = "Password must contain at least one number (0-9)!";
             validPassword = false;
+            document.getElementById("card").style.height = "400px";
         } else if (!lowercaseCheck.test(passwordOne)) {
             message = "Password must contain at least one lowercase letter (a-z)!";
             validPassword = false;
+            document.getElementById("card").style.height = "420px";
         } else if (!uppercaseCheck.test(passwordOne)) {
             message = "Password must contain at least one uppercase letter (A-Z)!";
             validPassword = false;
+            document.getElementById("card").style.height = "420px";
         }
     } else {
         message = "Passwords entered must be the same!";
         validPassword = false;
+        document.getElementById("card").style.height = "400px";
     }
 
     return JSON.stringify({
@@ -45,12 +50,13 @@ function checkPassword(passwordOne = "", passwordTwo = "") {
 
 const invalidInput = {
     show: function(message = "") {
-        var errorBox = document.getElementById("invalidInputError")
+        const errorBox = document.getElementById("invalidInputError");
         errorBox.style.display = "block";
         errorBox.innerHTML = message;
     },
     hide: function() {
         document.getElementById("invalidInputError").style.display = "none";
+        document.getElementById("card").style.height = "375px";
     }
 }
 
