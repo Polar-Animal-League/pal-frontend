@@ -28,12 +28,13 @@
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 import App from './App';
+import RegisterComponent from "./Components/Register"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RegisterComponent />
   </React.StrictMode>,
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   document.getElementById('root')
