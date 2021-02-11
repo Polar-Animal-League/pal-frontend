@@ -6,24 +6,26 @@
 <body>
     <h1>Register</h1>
     <div id="card">
-        <p>Email Address</p>
-        <input type="email" id="email" placeholder="your-email@example.com">
+        <p id="tags">Email Address</p>
+        <input type="text" id="email" placeholder="your-email@example.com">
 
-        <p>Password*</p>
+        <p id="tags">Username</p>
+        <input type="text" id="username" placeholder="Your username">
+
+        <p id="tags">Password*</p>
         <input type="password" id="password" placeholder="Your Password">
 
-        <p>Retype Password</p>
+        <p id="tags">Retype Password</p>
         <input type="password" id="passwordValidate" placeholder="Your Password">
 
         <p id="invalidInputError" style="color: red; display: hidden;"></p>
-        <span class="br"></span>  
+
+        <span id="br"></span>  
+
         <small>*(Make sure it is at least 8 letters long, and contains one number and one capital letter)</small>
         
         <input type="submit" id="submitButton" text="Submit" onclick="validateForm()">        
     </div>
-
 </body>
-
 <script src="registrationScript.js"></script>
-
 </html>
