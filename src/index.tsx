@@ -28,13 +28,15 @@
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-// import './index.css';
 import App from './App';
-import RegisterComponent from "./Components/Register"
+import {Provider} from "react-redux";
+import {createStore} from "redux"
+
+// const store = createStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <RegisterComponent />
+    <App/>
   </React.StrictMode>,
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   document.getElementById('root')
