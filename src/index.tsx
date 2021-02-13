@@ -29,20 +29,15 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
-import {Provider} from "react-redux";
-import {createStore} from "redux"
-
-// const store = createStore();
+import {Cookies} from "js-cookie"
+import UserContext from "../src/Context/UserContext"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <UserContext.Provider value="hello from context">
+      <App/>
+    </UserContext.Provider>
   </React.StrictMode>,
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
