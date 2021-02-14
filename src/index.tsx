@@ -29,12 +29,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
-import {Cookies} from "js-cookie"
-import UserContext from "../src/Context/UserContext"
+import {UserContext} from "../src/Context/UserContext"
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserContext.Provider value="hello from context">
+    <UserContext.Provider value={null}>
       <App/>
     </UserContext.Provider>
   </React.StrictMode>,

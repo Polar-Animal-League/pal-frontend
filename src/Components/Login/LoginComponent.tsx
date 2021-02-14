@@ -1,32 +1,35 @@
-import react, {useContext} from "react"
+import react, {useContext, useState} from "react"
 import { render } from "react-dom"
 import {UserContext} from "../../Context/UserContext"
+import {login} from "../../UserConnection/User"
+import TextField from "@material-ui/core/TextField"
+import {Button} from "@material-ui/core"
 
 export const LoginComponent = function() : JSX.Element {
   
     const [email, setEmail] = useState(""); 
     const [password, setPass] = useState("");
-    
+
     return (
-        <div>
-            <form id="card">
-                <p>Username</p>
-                <input onChange={e => setUn(e.target.value)} id="uNameInput" name="username" type="text"/>
+        <div className="align-center">
+            <h2 className="palHeader2">
+                Logohere PAL 
+            </h2>
+            <form id="loginForm">
+    
+                <TextField onChange = {(e: React.ChangeEvent<HTMLInputElement>) : void => {
+                    setEmail(e.target.value);
+                }} id="uEmailInput" label="Email" variant="outlined" name="email" type="email" placeholder="your-email@example.com"/>
 
-                <p>Email Address</p>
-                <input onChange={e => setEmail(e.target.value)} id="uEmailInput" name="email" type="email" placeholder="your-email@example.com"/>
 
-                <p>Password*</p>
-                <input onChange={e => setPass(e.target.value)} id="uPasswordInput" name="password" type="password" placeholder="Your Password"/>
+                 <TextField onChange = {(e: React.ChangeEvent<HTMLInputElement>) : void => {
+                    setEmail(e.target.value);
+                }} id="uPasswordInput" label="Password" variant="outlined" name="password" type="text" placeholder="*****"/>
 
-                <p>Retype Password</p>
-                <input onChange={e => setConf(e.target.value)} id="uPasswordValidateInput" name="confirm_password" type="password" placeholder="Your Password"/>
 
-                <p id="invalidInputError" style={styles.foobar}></p>
-                <span className="br"></span>  
-                <small>*(Make sure it is at least 8 letters long, and contains one number and one capital letter)</small>
-                
-                <input type="submit" id="submitButton" value="Submit"/>  
+                <Button variant="contained" color="primary">
+                    Primary
+                </Button>
             </form>
         </div>
     )

@@ -1,14 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, {useState} from "react"
-type RegisterProps = {
-
-}
-
-interface RegisterState  {
-    username:string,
-    password:string,
-    email:string,
-}
+import {register} from "../../UserConnection/User"
 
 const styles = {
     foobar : {
@@ -33,14 +25,16 @@ export const RegisterFormComponent = function() : JSX.Element {
                 <p>Password*</p>
                 <input onChange={e => setPass(e.target.value)} id="uPasswordInput" name="password" type="password" placeholder="Your Password"/>
 
-                <p>Retype Password</p>
-                <input onChange={e => setConf(e.target.value)} id="uPasswordValidateInput" name="confirm_password" type="password" placeholder="Your Password"/>
+                {/* <p>Retype Password</p>
+                <input onChange={e => setConf(e.target.value)} id="uPasswordValidateInput" name="confirm_password" type="password" placeholder="Your Password"/> */}
 
                 <p id="invalidInputError" style={styles.foobar}></p>
                 <span className="br"></span>  
                 <small>*(Make sure it is at least 8 letters long, and contains one number and one capital letter)</small>
                 
-                <input type="submit" id="submitButton" value="Submit"/>  
+                <input type="submit" onSubmit = {async (e: React.ChangeEvent<HTMLInputElement>) : Promise<void> => {
+                    await register(username, email, password);
+                }} id="submitButton" value="Submit"/>  
             </form>
         </div>
     )

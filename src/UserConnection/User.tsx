@@ -23,6 +23,13 @@ export function fetchUser(): UserType | null {
     return null
 }
 
-export function login() : void {
+export async function login(email: string, password: string) : Promise<void> {
+// localhost:8080/user/register
+
+}
+
+export async function register(username : string, email: string, password: string) : Promise<void> {
+
+// localhost:8080/user/register
 
 }
