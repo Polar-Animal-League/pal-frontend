@@ -2,6 +2,10 @@ html {
   font-size: 16px;
 }
 
+html, body, .app, .container {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto';
@@ -18,8 +22,8 @@ ul{
   display: flex;
   justify-content: space-between;
   height: 90px;
-  margin-right: 5rem;
-  font-size: 2rem;
+  margin-right: 2.5rem;
+  font-size: 1rem;
 }
 li {
   float: left;
@@ -50,12 +54,14 @@ li a:hover{
   display: flex;
   align-content: center;
   justify-content: center;
+  align-items: center;
 }
 
-.container > .align-center {
+.container > #loginDiv {
   background: white;
   padding: 1rem;
   border-radius: 2rem;
+  margin-top: -10rem;
 }
 input {
   margin-bottom: 2rem;
@@ -79,7 +85,7 @@ input, label{
 }
 
 .MuiOutlinedInput-root {
-  width: 300px;
+  width: 100%
 }
 
 #loginForm > div > label {
