@@ -20,7 +20,7 @@ export const NavbarComponent = function(props: NavProps) : JSX.Element {
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to="/about">News</Link>
+                            <Link to="/news">News</Link>
                         </li>
                          <li className="navbar-item ignore">
                             <img src="/images/header-logo-hover.jpg" id="navbar-logo"></img>
