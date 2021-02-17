@@ -28,8 +28,8 @@ export const LoginComponent = function() : JSX.Element {
                 }} id="uPasswordInput" label="Password" variant="outlined" name="password" type="text" placeholder="*****"/>
 
                 <Typography>
-                    <Link href="#" >
-                        You do not have an account? Click here to register.
+                    <Link href="/register" >
+                        Don't have an account? Click here to register.
                     </Link>
                 </Typography>
                 <Button variant="contained" color="primary">

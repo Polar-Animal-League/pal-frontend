@@ -70,7 +70,12 @@ input {
 input, label{
   display: block;
 }
+
 #loginForm  {
+  text-align: center;
+}
+
+#registerForm  {
   text-align: center;
 }
 
@@ -92,7 +97,27 @@ input, label{
   font-size: 1rem;
 }
 
+#registerForm > div > label {
+  font-size: 1rem;
+}
+
 #loginForm button.MuiButton-containedPrimary{
+  display: block !important;
+  margin: 0 auto;
+}
+
+p.MuiTypography-body1 {
+  margin-bottom: 1rem;
+}
+
+.container > #formDiv {
+  background: white;
+  padding: 1rem;
+  border-radius: 2rem;
+  margin-top: -10rem;
+}
+
+#registerForm button.MuiButton-containedPrimary{
   display: block !important;
   margin: 0 auto;
 }
