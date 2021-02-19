@@ -7,6 +7,8 @@ import {fetchUser} from "../src/UserConnection/User"
 import {UserContext} from "../src/Context/UserContext";
 import { LoginComponent } from './Components/Login/LoginComponent';
 import {BrowserRouter, Switch, Route} from "react-router-dom"
+import { StopwatchComponent } from './Components/Clock/StopwatchComponent';
+import { TimerComponent } from './Components/Clock/TimerComponent';
 
 function App(): JSX.Element {
 
@@ -28,6 +30,8 @@ function App(): JSX.Element {
               <Route exact path='/login' component={LoginComponent} />
             </Switch>
           </div>
+          <StopwatchComponent/>
+          <TimerComponent/>
         </UserContext.Provider>
       </div>
     </BrowserRouter>
