@@ -22,7 +22,9 @@ function App(): JSX.Element {
           <header className="mainHeader">
             <NavbarComponent id="nav-containerId" className="nav-container"/>
           </header>
-     
+
+          <Route exact path='/stopwatch' component={StopwatchComponent} />
+          <Route exact path='/timer' component={TimerComponent} />
           <div className="container">
             <Switch>
               {/* <Route exact path='/home' component={HomeComponent} /> */}
@@ -30,8 +32,6 @@ function App(): JSX.Element {
               <Route exact path='/login' component={LoginComponent} />
             </Switch>
           </div>
-          <StopwatchComponent/>
-          <TimerComponent/>
         </UserContext.Provider>
       </div>
     </BrowserRouter>
