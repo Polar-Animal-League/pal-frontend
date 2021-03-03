@@ -1,12 +1,13 @@
-import {createContext} from "react"
+import { createContext } from 'react';
 
 type UserType = {
-    id?: number,
-    username?: string,
-    email?: string,
-    token?: string 
-}
+    id?: number;
+    username?: string;
+    email?: string;
+    token?: string;
+};
+
 export const UserContext = createContext<{
-  user: UserType | null,
-  setUser: React.Dispatch<React.SetStateAction<UserType | null>>
+    user: UserType | null;
+    setUser: ((user: UserType) => void) | null;
 } | null>(null);

@@ -1,46 +1,22 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import React, { useState } from 'react';
-import { TextField, Typography, Link, Button } from '@material-ui/core';
+import { TextField, Typography, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+// import { React } from 'react';
 
-export const RegisterFormComponent = function (): JSX.Element {
-    const [username, setUn] = useState('');
-    const [password, setPass] = useState('');
-    const [confirmation, setConf] = useState('');
-    const [email, setEmail] = useState('');
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-        console.log('clicked');
-        e.preventDefault();
-
-        if (validateForm()) {
-            const submitSuccess: boolean = await submitForm();
-        }
-    };
-
-    const validateForm = function (): boolean {
-        return true;
-    };
-
-    async function submitForm(): Promise<boolean> {
-       const rawResponse = await fetch('http://localhost:8080/user/register', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-                body: JSON.stringify({username: username, password: password, email: email})
-            });
-        const content = await rawResponse.json();
-        console.log(content);
-        return true;
-    }
-
+interface PageProps {
+    handleSubmit(e: React.FormEvent<HTMLFormElement>);
+    setUn: React.Dispatch<React.SetStateAction<string>>;
+    setPass: React.Dispatch<React.SetStateAction<string>>;
+    setConf: React.Dispatch<React.SetStateAction<string>>;
+    setEmail: React.Dispatch<React.SetStateAction<string>>;
+}
+export const RegisterFormComponent = function (props: PageProps): JSX.Element | null {
     return (
         <div id="formDiv">
-            <form id="registerForm" onSubmit={handleSubmit}>
+            <form id="registerForm" onSubmit={props.handleSubmit}>
                 <TextField
                     onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
-                        setUn(e.target.value);
+                        props.setUn(e.target.value);
                     }}
                     id="uUserInput"
                     label="Username"
@@ -51,7 +27,7 @@ export const RegisterFormComponent = function (): JSX.Element {
 
                 <TextField
                     onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
-                        setEmail(e.target.value);
+                        props.setEmail(e.target.value);
                     }}
                     id="uEmailInput"
                     label="Email"
@@ -62,7 +38,7 @@ export const RegisterFormComponent = function (): JSX.Element {
 
                 <TextField
                     onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
-                        setPass(e.target.value);
+                        props.setPass(e.target.value);
                     }}
                     id="uPasswordInput"
                     label="Password"
@@ -74,7 +50,7 @@ export const RegisterFormComponent = function (): JSX.Element {
 
                 <TextField
                     onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
-                        setConf(e.target.value);
+                        props.setConf(e.target.value);
                     }}
                     id="uPasswordConfInput"
                     label="Password Confirmation"
@@ -85,7 +61,7 @@ export const RegisterFormComponent = function (): JSX.Element {
                 />
 
                 <Typography>
-                    <Link href="/register">Already have an account? Login.</Link>
+                    <Link to="/login">Already have an account? Login.</Link>
                 </Typography>
                 <Button variant="contained" type="submit" color="primary">
                     Register

@@ -1,32 +1,27 @@
 {
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "outDir": "dist",
-    "rootDir": "src",
-    "lib": [
-      "ES2020",
-      "DOM"
-    ],
-    "target": "ES2020",
-    "module": "esnext",
-    "moduleResolution": "Node",
-    "noEmitOnError": true,
-    "removeComments": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-    "allowUnreachableCode": false,
-    "strict": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
-  },
-  "include": [
-    "./src/**/*"
-  ]
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "outDir": "dist",
+        "rootDir": "src",
+        "lib": ["ES2020", "DOM"],
+        "target": "ES2020",
+        "module": "esnext",
+        "moduleResolution": "Node",
+        "noEmitOnError": true,
+        "removeComments": true,
+        "noImplicitReturns": true,
+        "noUncheckedIndexedAccess": true,
+        "allowUnreachableCode": false,
+        "strict": false,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true
+    },
+    "include": ["./src/**/*"]
 }
