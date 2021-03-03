@@ -1,0 +1,123 @@
+html {
+  font-size: 16px;
+}
+
+html, body, .app, .container {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url(../images/sub_bg.jpg) 50% 90px no-repeat #007bb8;
+}
+body, html, #root, .app-container{
+  height: 100%;
+  width: 100%;
+}
+
+ul{
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  margin-right: 2.5rem;
+  font-size: 1rem;
+}
+li {
+  float: left;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+}
+li a {
+  color: white;
+  text-decoration: none;
+}
+li a:hover{
+  font-weight: bold;
+}
+
+.app-container{
+  display: flex;
+}
+
+#navbar-logo{
+  width: 100px;
+  height: 60px;
+}
+
+.container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > #loginDiv {
+  background: white;
+  padding: 1rem;
+  border-radius: 2rem;
+  margin-top: -10rem;
+}
+input {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+input, label{
+  display: block;
+}
+
+#loginForm  {
+  text-align: center;
+}
+
+#registerForm  {
+  text-align: center;
+}
+
+.palHeader2 {
+  color: blue;
+  margin-bottom: 4rem;
+}
+
+.MuiTextField-root {
+  margin-bottom: 1rem !important;
+  display: block !important;
+}
+
+.MuiOutlinedInput-root {
+  width: 100%
+}
+
+#loginForm > div > label {
+  font-size: 1rem;
+}
+
+#registerForm > div > label {
+  font-size: 1rem;
+}
+
+#loginForm button.MuiButton-containedPrimary{
+  display: block !important;
+  margin: 0 auto;
+}
+
+p.MuiTypography-body1 {
+  margin-bottom: 1rem;
+}
+
+.container > #formDiv {
+  background: white;
+  padding: 1rem;
+  border-radius: 2rem;
+  margin-top: -10rem;
+}
+
+#registerForm button.MuiButton-containedPrimary{
+  display: block !important;
+  margin: 0 auto;
+}
