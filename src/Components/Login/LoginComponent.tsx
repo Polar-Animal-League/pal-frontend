@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import { Button } from '@material-ui/core';
-import { Typography, Link } from '@material-ui/core';
-import * as Auth from '../../Auth/auth';
+import { Button, TextField, Typography, Link } from '@material-ui/core';
+import history from '../History';
 
-export const LoginComponent = function (): JSX.Element {
-    const [email, setEmail] = useState('');
-    const [password, setPass] = useState('');
+interface PageProps {
+    handleSubmit(e: React.FormEvent<HTMLFormElement>);
+    setEmail: React.Dispatch<React.SetStateAction<string>>;
+    setPass: React.Dispatch<React.SetStateAction<string>>;
+}
 
+export const LoginComponent = function (props: PageProps): JSX.Element {
     return (
         <div id="loginDiv">
             <h2 className="palHeader2">Logohere PAL</h2>
-            <form id="loginForm">
+            <form id="loginForm" onSubmit={props.handleSubmit}>
                 <TextField
                     onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
-                        setEmail(e.target.value);
+                        props.setEmail(e.target.value);
                     }}
                     id="uEmailInput"
                     label="Email"
@@ -26,7 +26,7 @@ export const LoginComponent = function (): JSX.Element {
 
                 <TextField
                     onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
-                        setEmail(e.target.value);
+                        props.setPass(e.target.value);
                     }}
                     id="uPasswordInput"
                     label="Password"
@@ -37,7 +37,14 @@ export const LoginComponent = function (): JSX.Element {
                 />
 
                 <Typography>
-                    <Link href="/register">Don't have an account? Click here to register.</Link>
+                    <Link
+                        onClick={(e: React.MouseEvent<HTMLElement>): void => {
+                            e.preventDefault();
+                            history.push('/register');
+                        }}
+                    >
+                        Don't have an account? Click here to register.
+                    </Link>
                 </Typography>
                 <Button variant="contained" color="primary">
                     Login

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { TextField, Typography, Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-// import { React } from 'react';
+import { TextField, Typography, Button, Link } from '@material-ui/core';
+import history from '../History';
+// import {withRouter} from "react-router-dom"
 
 interface PageProps {
     handleSubmit(e: React.FormEvent<HTMLFormElement>);
@@ -61,7 +61,14 @@ export const RegisterFormComponent = function (props: PageProps): JSX.Element | 
                 />
 
                 <Typography>
-                    <Link to="/login">Already have an account? Login.</Link>
+                    <Link
+                        onClick={(e: React.MouseEvent<HTMLElement>): void => {
+                            e.preventDefault();
+                            history.push('/login');
+                        }}
+                    >
+                        Already have an account? Login.
+                    </Link>
                 </Typography>
                 <Button variant="contained" type="submit" color="primary">
                     Register

@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState, useMemo } from 'react';
 import { NavbarComponent } from '../src/Components/Navigation/NavbarComponent';
-import { RegisterFormComponent } from '../src/Components/Registration/RegisterFormComponent';
 import { LoginComponent } from './Components/Login/LoginComponent';
 import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 import { AuthProvider } from '@ryanar/react-auth-provider';
@@ -28,21 +27,19 @@ function App(): JSX.Element {
     return (
         <UserContext.Provider value={providerValue}>
             <AuthProvider onLogin={handleLogin} onLogout={handleLogout}>
-                <BrowserRouter>
-                    <div className="app">
-                        <header className="mainHeader">
-                            <NavbarComponent id="nav-containerId" className="nav-container" />
-                        </header>
+                <div className="app">
+                    <header className="mainHeader">
+                        <NavbarComponent id="nav-containerId" className="nav-container" />
+                    </header>
 
-                        <div className="container">
-                            <Switch>
-                                <Route exact path="/register" component={RegisterView} />
+                    <div className="container">
+                        <Switch>
+                            <Route exact path="/register" component={RegisterView} />
 
-                                <Route exact path="/login" component={LoginComponent} />
-                            </Switch>
-                        </div>
+                            <Route exact path="/login" component={LoginComponent} />
+                        </Switch>
                     </div>
-                </BrowserRouter>
+                </div>
             </AuthProvider>
         </UserContext.Provider>
     );
