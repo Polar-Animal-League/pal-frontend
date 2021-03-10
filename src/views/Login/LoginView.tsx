@@ -1,14 +1,12 @@
-import React, { useState, useContext } from 'react';
-import * as Auth from '../../Auth/auth';
-import { AuthContext } from '@ryanar/react-auth-provider';
+import { LoginComponent } from '../../Components/Login/LoginComponent';
+import { useState, useContext } from 'react';
 import { UserContext } from '../../Context/UserContext';
-import { RegisterFormComponent } from '../../Components/Registration/RegisterFormComponent';
+import { AuthContext } from '@ryanar/react-auth-provider';
+import * as Auth from '../../Auth/auth';
 
-export const RegisterView = function (): JSX.Element {
-    const [username, setUn] = useState('');
-    const [password, setPass] = useState('');
-    const [confirmation, setConf] = useState('');
+export const LoginView = function (): JSX.Element {
     const [email, setEmail] = useState('');
+    const [password, setPass] = useState('');
 
     const context = useContext(UserContext);
     if (!context) {
@@ -16,7 +14,6 @@ export const RegisterView = function (): JSX.Element {
     }
 
     const { user, setUser } = context;
-
     const { setAuthenticated } = useContext(AuthContext);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -30,12 +27,8 @@ export const RegisterView = function (): JSX.Element {
         }
     };
 
-    const validateForm = function (): boolean {
-        return true;
-    };
-
     async function submitForm(): Promise<boolean> {
-        const rawResponse = await Auth.register(username, email, password);
+        const rawResponse = await Auth.login(email, password);
         if (rawResponse.status === 409) {
             // Conflict error do something with the Component
         } else if (rawResponse.status === 200) {
@@ -48,13 +41,9 @@ export const RegisterView = function (): JSX.Element {
         return false;
     }
 
-    return (
-        <RegisterFormComponent
-            handleSubmit={handleSubmit}
-            setUn={setUn}
-            setEmail={setEmail}
-            setPass={setPass}
-            setConf={setConf}
-        />
-    );
+    const validateForm = function (): boolean {
+        return true;
+    };
+
+    return <LoginComponent handleSubmit={handleSubmit} setEmail={setEmail} setPass={setPass} />;
 };
