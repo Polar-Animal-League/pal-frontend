@@ -1,7 +1,7 @@
 import { get } from 'js-cookie';
 
 export async function login(email: string, password: string): Promise<Response> {
-    return fetch('http://localhost:8080/user/login', {
+    return fetch('http://api.play-pal.gg/user/login', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -17,7 +17,7 @@ export async function register(
     email: string,
     password: string
 ): Promise<Response> {
-    return fetch('http://localhost:8080/user/register', {
+    return fetch('http://api.play-pal.gg/user/register', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
