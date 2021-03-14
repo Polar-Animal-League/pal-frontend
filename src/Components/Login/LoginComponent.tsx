@@ -46,7 +46,7 @@ export const LoginComponent = function (props: PageProps): JSX.Element | null {
                         Don't have an account? Click here to register.
                     </Link>
                 </Typography>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" type="submit" color="primary">
                     Login
                 </Button>
             </form>
