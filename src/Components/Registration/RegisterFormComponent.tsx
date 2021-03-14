@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { TextField, Typography, Button, Link } from '@material-ui/core';
 import history from '../History';
-// import {withRouter} from "react-router-dom"
 
 interface PageProps {
     handleSubmit(e: React.FormEvent<HTMLFormElement>);

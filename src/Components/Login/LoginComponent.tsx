@@ -7,7 +7,7 @@ interface PageProps {
     setPass: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const LoginComponent = function (props: PageProps): JSX.Element {
+export const LoginComponent = function (props: PageProps): JSX.Element | null {
     return (
         <div id="loginDiv">
             <h2 className="palHeader2">Logohere PAL</h2>
@@ -32,7 +32,7 @@ export const LoginComponent = function (props: PageProps): JSX.Element {
                     label="Password"
                     variant="outlined"
                     name="password"
-                    type="text"
+                    type="password"
                     placeholder="*****"
                 />
 

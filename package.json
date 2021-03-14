@@ -4,8 +4,7 @@
     "main": "dist/index.js",
     "type": "commonjs",
     "scripts": {
-        "build": "tsc && npm run cpwww",
-        "cpwww": "rimraf ./dist/www && ncp ./www ./dist/www",
+        "build": "react-scripts build",
         "lint": "eslint . --ext .ts",
         "format": "prettier --write \"src/**/*.ts\"",
         "dev": "npm run build && env-cmd cross-conf-env docker-compose up --build app",
