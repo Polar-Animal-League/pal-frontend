@@ -1,12 +1,11 @@
 import './App.css';
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { NavbarComponent } from '../src/Components/Navigation/NavbarComponent';
-import { LoginComponent } from './Components/Login/LoginComponent';
-import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import { AuthProvider } from '@ryanar/react-auth-provider';
-import * as Auth from '../src/Auth/auth';
 import { UserContext } from '../src/Context/UserContext';
 import { RegisterView } from './views/Register/RegisterView';
+import { LoginView } from './views/Login/LoginView';
 
 function App(): JSX.Element {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -36,7 +35,7 @@ function App(): JSX.Element {
                         <Switch>
                             <Route exact path="/register" component={RegisterView} />
 
-                            <Route exact path="/login" component={LoginComponent} />
+                            <Route exact path="/login" component={LoginView} />
                         </Switch>
                     </div>
                 </div>
